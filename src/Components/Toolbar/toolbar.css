@@ -1,0 +1,46 @@
+.toolbar{
+    height: 6rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.buttons button{
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    color: transparent;
+    background-image: linear-gradient(45deg , #ff416c, #f3a193);
+    background-clip: text;
+    transition: all 0.2s ease-in-out;
+}
+
+.buttons button:hover, .buttons button:focus{
+    color: white;
+    background-clip: padding-box;
+    cursor: pointer;
+}
+
+.toolsList{
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.textTools, .linkTools, .listTools{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.textTools i, .linkTools i, .listTools i{
+    cursor: pointer;
+}

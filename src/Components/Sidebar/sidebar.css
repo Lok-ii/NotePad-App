@@ -1,0 +1,115 @@
+.sidebar{
+    width: 20%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0 0 0;
+    gap: 2rem;
+    /* overflow: scroll; */
+}
+
+.addNotes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    /* height: 8%; */
+}
+
+.addNotes p{
+    font-size: 2rem;
+    font-weight: 600;
+    color: transparent;
+    background-image: linear-gradient(to right, #ff416c, #ff4b2b);
+    background-clip: text;
+}
+
+.addButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    background-image: linear-gradient(45deg , #ff416c, #f3a193);
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    font-family: inherit;
+    font-size: 1.8rem;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+    color: white;
+    text-shadow: 0.2rem 0.2rem 0.5rem rgb(0, 0, 0, 0.3);
+    box-shadow: 0 0 1rem -0.1rem rgb(0, 0, 0, 0.3);
+    transition: all 0.2s ease-in-out;
+}
+
+.addButton:hover{
+    box-shadow: 0 0 1rem 0.1rem rgb(0, 0, 0, 0.3);
+}
+
+.addButton:active{
+    transform: scale(0.95) translateY(-0.01rem);
+}
+
+.notesList{
+    width: 100%;
+    /* height: 92%; */
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    overflow: scroll;
+}
+
+.notesList::-webkit-scrollbar{
+    display: none;
+}
+
+.note{
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    border-left: 0.3rem solid #ff4b2b;
+    box-shadow: 0 0 2rem 0.1rem rgb(0, 0, 0, 0.3);
+}
+
+.noteTitle{
+    width: 90%;
+    height: 100%;
+    font-family: inherit;
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+    overflow-x : scroll;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: transparent;
+    background-image: linear-gradient(to right, #ff416c, #ff4b2b);
+    background-clip: text;
+}
+
+.noteTitle:focus{
+    outline: 1px solid #f3a193;
+    border-radius: 0.3rem;
+}
+
+.noteTitle::-webkit-scrollbar{
+    display: none;
+}
+
+.deleteNote{
+    width: 10%;
+    color: red;
+    cursor: pointer;
+    font-size: 1.3rem;
+}
