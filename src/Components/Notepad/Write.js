@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import "./write.css";
 
 const Write = (props) => {
-    const [cursorPosition, setCursorPosition] = useState({ start: 0, end: 0 });
 
     const changeContent = (e)=>{
         props.setMarkdown(()=>{
@@ -19,9 +18,6 @@ const Write = (props) => {
              });
              return newValue;
         });
-
-        const { selectionStart, selectionEnd } = e.target;
-    setCursorPosition({ start: selectionStart, end: selectionEnd });
     }
 
   return <textarea className="editor" value={props.markdown} id={props.userId} onChange={changeContent}></textarea>;
