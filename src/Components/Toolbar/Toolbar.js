@@ -9,32 +9,76 @@ const Toolbar = (props) => {
       props.setPreview(!props.preview);
     }
   };
+
+  const applyHeading = () => {
+    props.setMarkdown((prevMarkdown) => {
+      const cursorPos = document.getElementsByTagName("textarea")[0].selectionStart;
+      const newMarkdown =
+        prevMarkdown.substring(0, cursorPos) + " ### " + prevMarkdown.substring(cursorPos);
+      return newMarkdown;
+    });
+  };
+
+  const applyBold = () => {
+    props.setMarkdown((prevMarkdown) => {
+      const cursorPos = document.getElementsByTagName("textarea")[0].selectionStart;
+      const newMarkdown =
+        prevMarkdown.substring(0, cursorPos) + "**" + prevMarkdown.substring(cursorPos) + "**";
+      return newMarkdown;
+    });
+  };
+
+  const applyItalic = () => {
+    props.setMarkdown((prevMarkdown) => {
+      const cursorPos = document.getElementsByTagName("textarea")[0].selectionStart;
+      const newMarkdown =
+        prevMarkdown.substring(0, cursorPos) + "*" + prevMarkdown.substring(cursorPos) + "*";
+      return newMarkdown;
+    });
+  };
+  
+
+  const applyStrikethrough = () => {
+    props.setMarkdown((prevMarkdown) => {
+      const cursorPos = document.getElementsByTagName("textarea")[0].selectionStart;
+      const newMarkdown =
+        prevMarkdown.substring(0, cursorPos) + "~~" + prevMarkdown.substring(cursorPos) + "~~";
+      return newMarkdown;
+    });
+  };
+  
   return (
     <div className="toolbar">
       <div className="buttons">
-        <button onClick={toggleSection} autoFocus>Write</button>
+        <button onClick={toggleSection} autoFocus>
+          Write
+        </button>
         <button onClick={toggleSection}>Preview</button>
       </div>
 
-      {!props.preview ? <div className="toolsList">
-      <div className="textTools">
-      <i class="fa-solid fa-heading"></i>
-      <i class="fa-solid fa-bold"></i>
-      <i class="fa-solid fa-italic"></i>
-      <i class="fa-solid fa-strikethrough"></i>
-      </div>
-      <div className="linkTools">
-      <i class="fa-solid fa-link"></i>
-      <i class="fa-solid fa-quote-right"></i>
-      <i class="fa-solid fa-code"></i>
-      <i class="fa-solid fa-image"></i>
-      </div>
-      <div className="listTools">
-      <i class="fa-solid fa-list-ul"></i>
-      <i class="fa-solid fa-list-ol"></i>
-      <i class="fa-solid fa-list-check"></i>
-      </div>
-      </div> : " "}
+      {!props.preview ? (
+        <div className="toolsList">
+          <div className="textTools">
+            <i class="fa-solid fa-heading" onClick={applyHeading}></i>
+            <i class="fa-solid fa-bold" onClick={applyBold}></i>
+            <i class="fa-solid fa-italic" onClick={applyItalic}></i>
+            <i class="fa-solid fa-strikethrough" onClick={applyStrikethrough}></i>
+          </div>
+          <div className="linkTools">
+            <i class="fa-solid fa-link"></i>
+            <i class="fa-solid fa-quote-right"></i>
+            <i class="fa-solid fa-code"></i>
+            <i class="fa-solid fa-image"></i>
+          </div>
+          <div className="listTools">
+            <i class="fa-solid fa-list-ul"></i>
+            <i class="fa-solid fa-list-ol"></i>
+            <i class="fa-solid fa-list-check"></i>
+          </div>
+        </div>
+      ) : (
+        " "
+      )}
     </div>
   );
 };

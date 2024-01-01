@@ -67,7 +67,12 @@ function App() {
             userId={setUserId}
           />
           <main>
-            <Toolbar preview={isPreview} setPreview={setPreview} />
+            <Toolbar
+              preview={isPreview}
+              setPreview={setPreview}
+              setMarkdown={setMarkdownContent}
+              userId={userId}
+            />
             {!isPreview ? (
               <Write
                 markdown={markdownContent}
