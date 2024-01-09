@@ -2,12 +2,9 @@ import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./App.css";
 import Sidebar from "./Components/Sidebar/Sidebar";
-import Toolbar from "./Components/Toolbar/Toolbar";
 import Write from "./Components/Notepad/Write";
-import Preview from "./Components/Preview/Preview";
 
 function App() {
-  const [isPreview, setPreview] = useState(false);
   const [dataArray, setDataArray] = useState([]);
   const [markdownContent, setMarkdownContent] = useState(
     "# Enter Your Title Here"
@@ -21,13 +18,15 @@ function App() {
     if (storedData && storedData.length !== 0) {
       let parsedData = JSON.parse(storedData);
       setDataArray(parsedData);
+      setUserId(parsedData[0].id);
+      setMarkdownContent(parsedData[0].content);
       setEmpty(false);
     } else {
       setEmpty(true);
     }
 
     localStorage.setItem("empty", isEmpty);
-  }, []);
+  }, [isEmpty]);
   return (
     <div className="mainContent">
       {isEmpty ? (
@@ -67,23 +66,13 @@ function App() {
             userId={setUserId}
           />
           <main>
-            <Toolbar
-              preview={isPreview}
-              setPreview={setPreview}
+            <Write
+              markdown={markdownContent}
               setMarkdown={setMarkdownContent}
               userId={userId}
+              data={dataArray}
+              setData={setDataArray}
             />
-            {!isPreview ? (
-              <Write
-                markdown={markdownContent}
-                setMarkdown={setMarkdownContent}
-                userId={userId}
-                data={dataArray}
-                setData={setDataArray}
-              />
-            ) : (
-              <Preview markdown={markdownContent} />
-            )}
           </main>
         </div>
       )}

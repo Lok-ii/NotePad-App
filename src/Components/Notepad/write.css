@@ -1,19 +1,27 @@
-.editor{
-    width: 100%;
-    height: 95%;
-    border: none;
-    font-family: inherit;
-    padding: 1rem;
-    font-size: 1.1rem;
-    background-image: linear-gradient(to right, rgb(74, 71, 163, 0.5) 20%, rgb(114, 113, 181, 0.5) 80%);
+.mde-textarea-wrapper {
+  position: relative;
+}
+
+.mde-textarea-wrapper textarea.mde-text {
+  width: 100%;
+  height: 95vh;
+  border: none;
+  font-family: inherit;
+  padding: 1rem;
+  font-size: 1.1rem;
+  background-image: linear-gradient(
+    to right,
+    rgb(74, 71, 163, 0.5) 20%,
+    rgb(114, 113, 181, 0.5) 80%
+  );
 }
 
 ::-webkit-scrollbar {
-    width: 0.5rem;
-  }
+  width: 0.5rem;
+}
 
-::-webkit-scrollbar-thumb{
-    /* width: 0.2rem; */
-    border-radius: 0.5rem;
-    background-image: linear-gradient(to bottom, #ff416c, #ff4b2b);
+::-webkit-scrollbar-thumb {
+  /* width: 0.2rem; */
+  border-radius: 0.5rem;
+  background-image: linear-gradient(to bottom, #ff416c, #ff4b2b);
 }

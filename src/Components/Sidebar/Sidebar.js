@@ -70,7 +70,7 @@ const changeThings = (e)=>{
       <div className="notesList">
         {props.data.map((note) => {
           return (
-            <div className="note">
+            <div className="note" key={note.id}>
               <input value={note.title} onInput={changeTitle}  onClick={changeThings} className="noteTitle" title={note.id} />
               <i
                 className="fa-solid fa-trash deleteNote"

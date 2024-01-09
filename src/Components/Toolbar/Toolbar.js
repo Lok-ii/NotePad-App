@@ -13,39 +13,45 @@ const Toolbar = (props) => {
   const applyHeading = () => {
     props.setMarkdown((prevMarkdown) => {
       const cursorPos = document.getElementsByTagName("textarea")[0].selectionStart;
-      const newMarkdown =
-        prevMarkdown.substring(0, cursorPos) + " ### " + prevMarkdown.substring(cursorPos);
-      return newMarkdown;
-    });
-  };
-
-  const applyBold = () => {
-    props.setMarkdown((prevMarkdown) => {
-      const cursorPos = document.getElementsByTagName("textarea")[0].selectionStart;
-      const newMarkdown =
-        prevMarkdown.substring(0, cursorPos) + "**" + prevMarkdown.substring(cursorPos) + "**";
-      return newMarkdown;
-    });
-  };
-
-  const applyItalic = () => {
-    props.setMarkdown((prevMarkdown) => {
-      const cursorPos = document.getElementsByTagName("textarea")[0].selectionStart;
-      const newMarkdown =
-        prevMarkdown.substring(0, cursorPos) + "*" + prevMarkdown.substring(cursorPos) + "*";
+      const newMarkdown = prevMarkdown.substring(0, cursorPos) + '### ' + prevMarkdown.substring(cursorPos);
       return newMarkdown;
     });
   };
   
 
-  const applyStrikethrough = () => {
+  const applyBold = () => {
     props.setMarkdown((prevMarkdown) => {
       const cursorPos = document.getElementsByTagName("textarea")[0].selectionStart;
-      const newMarkdown =
-        prevMarkdown.substring(0, cursorPos) + "~~" + prevMarkdown.substring(cursorPos) + "~~";
+      const selectedText = window.getSelection().toString();
+      const boldText = `**${selectedText}**`;
+      const newMarkdown = prevMarkdown.substring(0, cursorPos) + boldText + prevMarkdown.substring(cursorPos + selectedText.length);
       return newMarkdown;
     });
   };
+  
+
+  const applyItalic = () => {
+    props.setMarkdown((prevMarkdown) => {
+      const cursorPos = document.getElementsByTagName("textarea")[0].selectionStart;
+      const selectedText = window.getSelection().toString();
+      const italicText = `*${selectedText}*`;
+      const newMarkdown = prevMarkdown.substring(0, cursorPos) + italicText + prevMarkdown.substring(cursorPos + selectedText.length);
+      return newMarkdown;
+    });
+  };
+  
+  
+
+  const applyStrikethrough = () => {
+    props.setMarkdown((prevMarkdown) => {
+      const cursorPos = document.getElementsByTagName("textarea")[0].selectionStart;
+      const selectedText = window.getSelection().toString();
+      const strikethroughText = `~~${selectedText}~~`;
+      const newMarkdown = prevMarkdown.substring(0, cursorPos) + strikethroughText + prevMarkdown.substring(cursorPos + selectedText.length);
+      return newMarkdown;
+    });
+  };
+  
   
   return (
     <div className="toolbar">
